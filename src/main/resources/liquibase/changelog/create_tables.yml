@@ -1,0 +1,33 @@
+databaseChangeLog:
+  - changeSet:
+      id: createTables
+      author: diego.munoz
+      changes:
+        - createTable:
+            tableName: rider
+            ifNotExists: true
+            columns:
+              - column: { name: uuid, type: uuid, constraints: {primaryKey: true} }
+              - column: { name: created_at, type: timestamp(6) }
+              - column: { name: created_by, type: varchar(255) }
+              - column: { name: last_modified_at, type: timestamp(6) }
+              - column: { name: modified_by, type: varchar(255) }
+              - column: { name: email, type: varchar(255) }
+              - column: { name: name, type: varchar(255) }
+              - column: { name: payment_source_id, type: integer }
+              - column: { name: token, type: varchar(255) }
+        - createTable:
+            tableName: driver
+            ifNotExists: true
+            columns:
+              - column: { name: uuid, type: uuid, constraints: { primaryKey: true } }
+              - column: { name: created_at, type: timestamp(6) }
+              - column: { name: created_by, type: varchar(255) }
+              - column: { name: last_modified_at, type: timestamp(6) }
+              - column: { name: modified_by, type: varchar(255) }
+              - column: { name: latitude, type: double }
+              - column: { name: longitude, type: double }
+              - column: { name: name, type: varchar(255) }
+
+
+

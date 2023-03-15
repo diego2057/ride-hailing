@@ -6,7 +6,8 @@ databaseChangeLog:
         - sql:
             splitStatements: false
             endDelimiter: ';'
-            sql: |
-              INSERT INTO rider (uuid, payment_source_id, name, token, email) VALUES ('2be90fee-244f-4cbb-bb59-c92ab6c4ae48',null, 'Diego Pérez', 'tok_test_38221_7014F8Fdb5663630da129daBb663DA7e', 'rider1@example.com');
-              INSERT INTO rider (uuid, payment_source_id, name, token, email) VALUES ('cf8a9dcc-f5e2-4e82-a58a-620e1f39f4e8', null, 'Camilo Pérez', 'tok_test_38221_9a7fbEC94e1bA4AfA462A5D3B93e1787', 'rider2@example.com');
-              INSERT INTO rider (uuid, payment_source_id, name, token, email) VALUES ('8a204970-526c-4cf8-9fae-362dac811280', null, 'Pedro Pérez', 'tok_test_38221_A4e6fc39785fedB83d8Dcd4c733804b3', 'rider3@example.com');
+            sql: DO $$ BEGIN 
+                IF NOT EXISTS (SELECT uuid FROM rider WHERE uuid = '2be90fee-244f-4cbb-bb59-c92ab6c4ae48') THEN INSERT INTO rider (uuid, payment_source_id, name, token, email) VALUES ('2be90fee-244f-4cbb-bb59-c92ab6c4ae48',null, 'Diego Pérez', 'tok_test_38221_7014F8Fdb5663630da129daBb663DA7e', 'rider1@example.com'); END IF;
+                IF NOT EXISTS (SELECT uuid FROM rider WHERE uuid = 'cf8a9dcc-f5e2-4e82-a58a-620e1f39f4e8') THEN INSERT INTO rider (uuid, payment_source_id, name, token, email) VALUES ('cf8a9dcc-f5e2-4e82-a58a-620e1f39f4e8', null, 'Camilo Pérez', 'tok_test_38221_9a7fbEC94e1bA4AfA462A5D3B93e1787', 'rider2@example.com'); END IF;
+                IF NOT EXISTS (SELECT uuid FROM rider WHERE uuid = '8a204970-526c-4cf8-9fae-362dac811280') THEN INSERT INTO rider (uuid, payment_source_id, name, token, email) VALUES ('8a204970-526c-4cf8-9fae-362dac811280', null, 'Pedro Pérez', 'tok_test_38221_A4e6fc39785fedB83d8Dcd4c733804b3', 'rider3@example.com'); END IF;
+                END$$;

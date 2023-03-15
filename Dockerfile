@@ -24,5 +24,4 @@ EXPOSE $APP_PORT
 
 # Set entrypoint script
 COPY ./.docker/entrypoint.sh /entrypoint.sh
-RUN chmod 755 /entrypoint.sh
-ENTRYPOINT ["/bin/bash", "entrypoint.sh"]
+ENTRYPOINT ./entrypoint.sh
