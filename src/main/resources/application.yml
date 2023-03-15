@@ -1,0 +1,59 @@
+app:
+  description: Ride Hailing is a Spring Boot application
+  name: ride-hailing
+  time_zone: UTC
+  wompi-ms:
+    url: https://sandbox.wompi.co/v1/
+    private-token: prv_test_38iSOOWTdlDGJmCDJRR6ZdMHcB2jNMlG
+    public-token: pub_test_n0WGTq01wqRlQ3pPMHUhiBn5HPgaWgi8
+    type: CARD
+
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/mydb
+    username: myuser
+    password: mypassword
+    hikari:
+      maximum-pool-size: 300
+      minimum-idle: 5
+      idle-timeout: 20000
+      connection-timeout: 30000
+  jpa:
+    show-sql: false
+    generate-ddl: false
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+        time_zone: UTC
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+  output:
+    ansi:
+      enabled: ALWAYS
+  liquibase:
+    change-log: classpath:liquibase/liquibase-changelog.yml
+    enabled: true
+  servlet:
+    multipart:
+      max-request-size: 100MB
+
+server:
+  port: 8080
+  servlet:
+    context-path: ${SERVLET_CONTEXT_PATH:}
+  error:
+    include-stacktrace: never
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+    jmx:
+      exposure:
+        include: "*"
+  endpoint:
+    loggers:
+      enabled: true

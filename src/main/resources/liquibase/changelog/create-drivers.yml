@@ -1,0 +1,18 @@
+databaseChangeLog:
+  - changeSet:
+      id: insert_data_driver
+      author: diego.munoz
+      changes:
+        - sql:
+            splitStatements: false
+            endDelimiter: ';'
+            sql: |
+              INSERT INTO driver (uuid, name, latitude, longitude) VALUES ('ad909788-1cd2-4d5e-895e-3eb8cefa4348', regexp_replace(md5(random()::text), '[0-9]', '', 'g')::text, (random() * (180.0 + 1.0)) - 90.0, (random() * (360.0 + 1.0)) - 180.0);
+              INSERT INTO driver (uuid, name, latitude, longitude) VALUES ('64ba44dd-7a2b-4c28-93bf-8f064aaa8db6', regexp_replace(md5(random()::text), '[0-9]', '', 'g')::text, (random() * (180.0 + 1.0)) - 90.0, (random() * (360.0 + 1.0)) - 180.0);
+              INSERT INTO driver (uuid, name, latitude, longitude) VALUES ('0e8cd1c5-b9b5-4d03-9555-015213620791', regexp_replace(md5(random()::text), '[0-9]', '', 'g')::text, (random() * (180.0 + 1.0)) - 90.0, (random() * (360.0 + 1.0)) - 180.0);
+              INSERT INTO driver (uuid, name, latitude, longitude) VALUES ('c4712a40-390e-46b8-8c02-3a1c4068ff34', regexp_replace(md5(random()::text), '[0-9]', '', 'g')::text, (random() * (180.0 + 1.0)) - 90.0, (random() * (360.0 + 1.0)) - 180.0);
+              INSERT INTO driver (uuid, name, latitude, longitude) VALUES ('b1b886aa-0ceb-441f-84aa-435058a59adb', regexp_replace(md5(random()::text), '[0-9]', '', 'g')::text, (random() * (180.0 + 1.0)) - 90.0, (random() * (360.0 + 1.0)) - 180.0);
+              INSERT INTO driver (uuid, name, latitude, longitude) VALUES ('ddf7fd0c-0e61-458a-a2a7-3ad818e99674', regexp_replace(md5(random()::text), '[0-9]', '', 'g')::text, (random() * (180.0 + 1.0)) - 90.0, (random() * (360.0 + 1.0)) - 180.0);
+              INSERT INTO driver (uuid, name, latitude, longitude) VALUES ('0aeb4c69-27a9-4476-83a5-8027cfccee62', regexp_replace(md5(random()::text), '[0-9]', '', 'g')::text, (random() * (180.0 + 1.0)) - 90.0, (random() * (360.0 + 1.0)) - 180.0);
+              INSERT INTO driver (uuid, name, latitude, longitude) VALUES ('ef0274a9-6ca1-46b0-b79a-2803f3f76d06', regexp_replace(md5(random()::text), '[0-9]', '', 'g')::text, (random() * (180.0 + 1.0)) - 90.0, (random() * (360.0 + 1.0)) - 180.0);
+              INSERT INTO driver (uuid, name, latitude, longitude) VALUES ('bcde2c82-4b37-4e07-aded-bed4ae22baa6', regexp_replace(md5(random()::text), '[0-9]', '', 'g')::text, (random() * (180.0 + 1.0)) - 90.0, (random() * (360.0 + 1.0)) - 180.0);

@@ -1,0 +1,5 @@
+databaseChangeLog:
+- include:
+    file: liquibase/changelog/create_riders.yml
+- include:
+    file: liquibase/changelog/create-drivers.yml
