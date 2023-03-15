@@ -7,6 +7,8 @@ import java.util.UUID
 class RideRequest {
     @NotNull(groups = [OnCreate::class])
     var riderUuid: UUID? = null
+    @NotNull(groups = [OnCreate::class])
     var latitudeSource: Double? = null
+    @NotNull(groups = [OnCreate::class])
     var longitudeSource: Double? = null
 }

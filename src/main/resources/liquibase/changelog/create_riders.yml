@@ -1,6 +1,6 @@
 databaseChangeLog:
   - changeSet:
-      id: insert_data_rider
+      id: insert_data_riders
       author: diego.munoz
       changes:
         - sql:

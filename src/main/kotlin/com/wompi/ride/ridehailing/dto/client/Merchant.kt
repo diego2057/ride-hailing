@@ -1,6 +1,6 @@
 package com.wompi.ride.ridehailing.dto.client
 
 data class Merchant(
-    val data: Data,
-    val meta: Map<String, Any>
+    val data: Data? = null,
+    val meta: Map<String, Any>? = null
 )

@@ -8,20 +8,20 @@ import jakarta.persistence.ManyToOne
 
 @Entity
 data class Ride(
-    @ManyToOne
+        @ManyToOne
     @JoinColumn(nullable = false)
     var rider: Rider? = null,
-    @ManyToOne
+        @ManyToOne
     @JoinColumn(nullable = false)
     var driver: Driver? = null,
-    @Column(name = "latitude_source", updatable = false)
+        @Column(name = "latitude_source", updatable = false)
     var latitudeSource: Double? = null,
-    @Column(name = "longitude_source", updatable = false)
+        @Column(name = "longitude_source", updatable = false)
     var longitudeSource: Double? = null,
-    @Column(name = "latitude_final")
+        @Column(name = "latitude_final")
     var latitudeFinal: Double? = null,
-    @Column(name = "longitude_final")
+        @Column(name = "longitude_final")
     var longitudeFinal: Double? = null,
-    var valor: Double? = null,
-    var status: StatusEnum? = StatusEnum.free
+    var value: Double? = null,
+    var status: StatusEnum? = StatusEnum.onRide
 ) : BaseModel()

@@ -38,6 +38,8 @@ spring:
   servlet:
     multipart:
       max-request-size: 100MB
+  jackson:
+    property-naming-strategy: SNAKE_CASE
 
 server:
   port: 8080

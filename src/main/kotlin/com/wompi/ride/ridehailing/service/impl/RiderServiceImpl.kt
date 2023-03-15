@@ -1,6 +1,7 @@
 package com.wompi.ride.ridehailing.service.impl
 
 import com.wompi.ride.ridehailing.client.WompiClient
+import com.wompi.ride.ridehailing.dto.client.CardPrivateData
 import com.wompi.ride.ridehailing.dto.client.PaymentCard
 import com.wompi.ride.ridehailing.dto.rider.RiderDto
 import com.wompi.ride.ridehailing.dto.rider.RiderMapper
@@ -34,15 +35,19 @@ class RiderServiceImpl(
         }
         try {
             val merchant = wompiClient.merchantsToken(pubToken)
+            val card = wompiClient.tokenized(CardPrivateData(), "Bearer $pubToken")
             val paymentCard = PaymentCard(
-                    typePayment, rider.token, rider.email,
-                    merchant.data.presignedAcceptance.acceptanceToken
+                    typePayment, card.data?.id, rider.email,
+                    merchant.data?.presignedAcceptance?.acceptanceToken
             )
-            val paymentSource = wompiClient.paymentSource(paymentCard, privateToken)
-            rider.paymentSourceID = paymentSource.data.id
+            println(merchant)
+            println(paymentCard)
+            val paymentSource = wompiClient.paymentSource(paymentCard, "Bearer $privateToken")
+            rider.paymentSourceID = paymentSource.data?.id
 
             return riderMapper.toDto(riderRepository.save(rider))
         } catch (e: Exception){
+            e.printStackTrace()
             throw ResponseStatusException(HttpStatus.UNPROCESSABLE_ENTITY, e.message)
         }
     }

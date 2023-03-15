@@ -25,14 +25,14 @@ class RideController(private val rideService: RideService) {
         return ResponseEntity.ok(ride)
     }
 
-    @PostMapping("/rider")
+    @PostMapping("/rider/request-ride")
     fun createRide(@RequestBody ride: RideRequest): ResponseEntity<RideDto> {
         val createdRide = rideService.requestRide(ride)
         return ResponseEntity.status(HttpStatus.CREATED).body(createdRide)
     }
 
-    @PatchMapping("/driver")
+    @PatchMapping("/driver/finish-ride")
     fun updateRide(@ModelAttribute updatedRideRequest: UpdatedRideRequest): ResponseEntity<RideDto> {
-        return ResponseEntity.ok(rideService.calculateValue(updatedRideRequest))
+        return ResponseEntity.ok(rideService.finishRide(updatedRideRequest))
     }
 }

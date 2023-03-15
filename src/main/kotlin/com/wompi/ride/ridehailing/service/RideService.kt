@@ -8,5 +8,5 @@ import java.util.UUID
 interface RideService {
     fun getRideById(uuid: UUID): RideDto
     fun requestRide(ride: RideRequest): RideDto
-    fun calculateValue(updatedRideRequest: UpdatedRideRequest): RideDto
+    fun finishRide(updatedRideRequest: UpdatedRideRequest): RideDto
 }
