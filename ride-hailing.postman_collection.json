@@ -1,0 +1,128 @@
+{
+	"info": {
+		"_postman_id": "6788ecce-f66c-42d4-916a-0336a1e302d0",
+		"name": "ride-hailing",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "4555151"
+	},
+	"item": [
+		{
+			"name": "Get all riders",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/riders",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"riders"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all drivers",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/drivers",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"drivers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createPaymentMethod",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/riders/cf8a9dcc-f5e2-4e82-a58a-620e1f39f4e8",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"riders",
+						"cf8a9dcc-f5e2-4e82-a58a-620e1f39f4e8"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create ride",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"rider_uuid\": \"cf8a9dcc-f5e2-4e82-a58a-620e1f39f4e8\",\r\n    \"latitude_source\": 51.5074,\r\n    \"longitude_source\": -0.1278\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/rides/rider/request-ride",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"rides",
+						"rider",
+						"request-ride"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Finish ride",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"ddriver_uuid\": \"bcde2c82-4b37-4e07-aded-bed4ae22baa6\",\r\n    \"latitude_final\": 40.7128,\r\n    \"longitude_final\": -74.0060\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/rides/driver/finish-ride",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"rides",
+						"driver",
+						"finish-ride"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
